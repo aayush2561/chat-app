@@ -53,7 +53,10 @@ async function login (req,res){
       return res.status(400).json({error:"Invalid username or password"});
     }
     generateToken(user._id,rememberme,res);
-    res.status(201).json({ message: 'User Logged in successfully' });
+    res.status(200).json({ 
+                          _id: user._id,
+                          fullName: user.fullname,
+                          username: user.username});
   }
   catch(error)
   {

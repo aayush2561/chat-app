@@ -12,7 +12,9 @@ const Navbar = ({ onNavClick }) => {
   };
 
   return (
-    <div className={`flex ${isMobile ? 'flex-row' : 'flex-col'} h-full p-4 w-full ${isMobile ? 'justify-between' : 'max-w-max space-y-10'}`}>
+    <nav className={`flex ${isMobile ? 'flex-row' : 'flex-col'} ${
+      isMobile ? 'absolute bottom-0 w-full' : 'max-w-max space-y-10'
+    }  ${isMobile ? 'justify-between items-center border-t border-gray-300' : 'flex-start' } p-4`}>
       <a href="/chat" onClick={(e) => handleClick('chat', e)} className="text-white text-2xl">
         <i className="fas fa-comments"></i>
       </a>
@@ -25,7 +27,7 @@ const Navbar = ({ onNavClick }) => {
       <a href="/logout" onClick={(e) => { e.preventDefault(); logout(); }} className="text-white text-2xl">
         <i className="fas fa-sign-out-alt"></i>
       </a>
-    </div>
+    </nav>
   );
 };
 
