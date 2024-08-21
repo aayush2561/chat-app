@@ -21,7 +21,6 @@ const userSchema = new Schema({
     },
     ProfileImage:{
         type:String,
-        default:"",
     },
 })
 

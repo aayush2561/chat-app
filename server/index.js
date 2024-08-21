@@ -7,12 +7,13 @@ const messageRoutes=require('./routes/messageRoutes');
 const userRoutes=require('./routes/userRoutes')
 const corsOptions=require('./config/Corsconfig');
 const db=require('./config/db')
+const path=require('path');
 const port=3000;
 
 
 app.use(express.json());
 app.use(cors(corsOptions));
-app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static(path.join(__dirname ,'uploads')));
 app.use(cookieParser());
 
 db();

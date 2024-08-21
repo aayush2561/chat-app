@@ -15,14 +15,19 @@ const useLogin = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-      const response =await axios.post(Api_config.LOGIN_USER, { username, password, rememberme });
+      try{
+      const response =await axios.post(Api_config.LOGIN_USER, { username, password, rememberme },
+        { withCredentials: true } 
+      );
       const data = await response.data;
       localStorage.setItem("chat-user",JSON.stringify(data));
       setAuthUser(data);
       toast.success('Login successful! Redirecting...');
       setTimeout(() => navigate('/'), 1000); 
-   
+      }
+      catch(error){
+        toast.error(error.message);
+      }
   };
 
   const handleRemembermeChange = (event) => {

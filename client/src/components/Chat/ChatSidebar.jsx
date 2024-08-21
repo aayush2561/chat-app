@@ -1,10 +1,12 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import Conversation from './Conversation'
+import Conversation from './Conversation';
+import usegetConversation from '../../Hooks/usegetConversation';
 
 const ChatSidebar = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
-
+   const {conversations }= usegetConversation();
+  
   return (
     <div
       className={`p-4 border-r border-gray-500 overflow-y-auto rounded-lg ${
@@ -24,11 +26,10 @@ const ChatSidebar = () => {
 
       <div className="divider my-0 py-0 h-1" />
 
-
-      <Conversation />
-      <Conversation />
-      <Conversation />
-      <Conversation />
+      {conversations.map((conversation) => (
+        <Conversation key={conversation._id}
+         conversation={conversation} />
+      ))}
     </div>
   );
 };
