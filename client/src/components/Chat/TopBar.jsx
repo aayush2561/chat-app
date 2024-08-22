@@ -18,7 +18,7 @@ const TopBar = () => {
           <p className="text-sm text-gray-400">Online</p>
         </div>
       </div>
-      <i className="fas fa-video text-2xl cursor-pointer"></i>
+      <i className="fas fa-video text-2xl cursor-pointer  hover:text-green-500"></i>
     </div>
 
   );

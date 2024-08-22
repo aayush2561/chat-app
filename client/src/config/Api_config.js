@@ -9,6 +9,8 @@ export const Api_config = {
   
   UPLOAD_PROFILE:`${API_URL}/uploads/profile/`,
 
-  SEND_MESSAGE:(id) =>`${API_URL}/api/v1/message/send/${id}`
+  SEND_MESSAGE:(id) =>`${API_URL}/api/v1/message/send/${id}`,
+
+  GET_MESSAGE:(id) => `${API_URL}/api/v1/message/${id}`
 };
 

@@ -22,7 +22,7 @@ const MessageInput = () => {
   }
 
   return (
-    <div className="relative flex items-center">
+    <div className="relative flex items-end ">
       <i
         className="far fa-smile text-xl mr-2 cursor-pointer"
         onClick={toggleEmojiPicker}
