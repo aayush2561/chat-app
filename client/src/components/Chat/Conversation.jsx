@@ -1,7 +1,7 @@
 import React from 'react'
 import { Api_config } from '../../config/Api_config'
 import useConversation from '../../store/useConversation'
-import { useSocketContext } from '../../context/SocketContext.jsX'
+import { useSocketContext } from '../../context/SocketContext.jsx'
 
 const Conversation = ({conversation}) => {
   const {selectedConversation,setselectedConversation}=useConversation ();
