@@ -5,6 +5,7 @@ proper user validation using jwt and real time chat using socket.io
 
 
 ## Screenshot
+![screenshots](https://github.com/aayush2561/gharbhada/blob/main/client/Preview.png)
 
 ## Features
 - User Authentication:Signup with profile image using multer and proper validation and login with remember me section and jwt token.
@@ -14,7 +15,8 @@ proper user validation using jwt and real time chat using socket.io
 - Protected Route: Routes are protected so only logged in users can access .
 
 - Real time chat and user online and offline status :Using socket.io i have implemented proper real time communication.
-- 
+
+  
 ## Technology Used
 
 - React - frontend 
