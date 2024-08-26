@@ -1,5 +1,5 @@
 const express =require('express')
-const app=express();
+const {app,server} =require('./socket/socket')
 const cors=require('cors');
 const cookieParser=require('cookie-parser');
 const authRoutes=require('./routes/authRoute');
@@ -22,6 +22,6 @@ app.use("/api/v1/auth",authRoutes);
 app.use("/api/v1/users",userRoutes);
 app.use("/api/v1/message",messageRoutes);
 
-app.listen(port,() =>{
+server.listen(port,() =>{
     console.log(`Server is listening at ${port}`);
 })

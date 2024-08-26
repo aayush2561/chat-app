@@ -56,7 +56,8 @@ async function login (req,res){
     res.status(200).json({ 
                           _id: user._id,
                           fullName: user.fullname,
-                          username: user.username});
+                          username: user.username,
+                          ProfileImage: user.ProfileImage});
   }
   catch(error)
   {

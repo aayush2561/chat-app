@@ -1,5 +1,6 @@
 const Conversation =require('../models/conversationModel');
 const Message=require('../models/messageModel');
+const { getReceiverSocketId } = require('../socket/socket');
 async function sendMessage(req, res) {
     try{
         const {message}=req.body;
@@ -24,8 +25,12 @@ async function sendMessage(req, res) {
         if(newMessage){
             conversation.messages.push(newMessage._id);
         }
-        await conversation.save();
-        await newMessage.save();
+
+        await Promise.all([conversation.save(),newMessage.save()]);
+        const receiverSocketId= getReceiverSocketId(receiverId);
+        if(receiverSocketId) {
+            io.to(receiverSocketId).emit("newMessage",newMessage);
+        }
     }
     catch(error){
         console.log("Eroor in sending message",error.message)
@@ -41,12 +46,10 @@ async function getMessage(req, res) {
             participants:{$all:[senderId , userToChatId]},
         }).populate('messages');
         if(!conversation) {
-            res.status(200).json([])
+           return  res.status(200).json([])
        }
        const messages=conversation.messages;
         res.status(200).json(messages);
-        
-
     }catch(error){
         res.status(500).json({error:"Internal Server Error"});
     }
