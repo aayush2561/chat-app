@@ -16,10 +16,10 @@ const MessageInput = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    if (!message.trim()) return; // Ensure message is not just whitespace
+    if (!message.trim()) return; 
     try {
-      await sendMessage(message);
-      setMessage(""); // Clear the input field
+      sendMessage(message);
+      setMessage(""); 
     } catch (error) {
       console.error("Failed to send message:", error);
     }
